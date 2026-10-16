@@ -48,8 +48,8 @@ function Index() {
             <a href="#stories" className="hover:text-foreground">Stories</a>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="#" className="hidden text-sm font-medium sm:block">Log in</a>
-            <a href="#pricing" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">Get started</a>
+            <a href="/auth" className="hidden text-sm font-medium sm:block">Log in</a>
+            <a href="/auth" className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground hover:opacity-90">Get started</a>
           </div>
         </div>
       </header>
@@ -64,7 +64,7 @@ function Index() {
             Fold brings members, giving, attendance and communication into one simple home — so your team spends less time on admin and more time on people.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#pricing" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-90">Start free <ArrowRight className="h-4 w-4" /></a>
+            <a href="/auth" className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground hover:opacity-90">Start free <ArrowRight className="h-4 w-4" /></a>
             <a href="#features" className="rounded-full border bg-card px-6 py-3.5 font-semibold hover:bg-muted">Book a demo</a>
           </div>
         </div>
@@ -136,7 +136,7 @@ function Index() {
                 <ul className="mt-6 space-y-3 text-sm">
                   {p.items.map((i) => <li key={i} className="flex gap-2"><Check className="h-4 w-4 shrink-0" />{i}</li>)}
                 </ul>
-                <a href="#" className={`mt-8 block rounded-full py-3 text-center font-semibold ${p.featured ? "bg-card text-card-foreground" : "bg-primary text-primary-foreground"}`}>Choose {p.name}</a>
+                <a href="/auth" className={`mt-8 block rounded-full py-3 text-center font-semibold ${p.featured ? "bg-card text-card-foreground" : "bg-primary text-primary-foreground"}`}>Choose {p.name}</a>
               </div>
             ))}
           </div>

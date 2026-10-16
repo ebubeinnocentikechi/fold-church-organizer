@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 
 export type Field = {
   name: string; label: string; type?: string; required?: boolean;
-  options?: string[]; defaultValue?: string;
+  options?: (string | { value: string; label: string })[]; defaultValue?: string;
 };
 
 export function RecordDialog({ title, fields, onSubmit, trigger }: {
@@ -34,7 +34,7 @@ export function RecordDialog({ title, fields, onSubmit, trigger }: {
               {f.options ? (
                 <select id={f.name} name={f.name} defaultValue={f.defaultValue}
                   className="mt-1 h-9 w-full rounded-md border bg-background px-3 text-sm capitalize">
-                  {f.options.map((o) => <option key={o} value={o}>{o}</option>)}
+                  {f.options.map((o) => { const v = typeof o === "string" ? o : o.value; const l = typeof o === "string" ? o : o.label; return <option key={v} value={v}>{l || "—"}</option>; })}
                 </select>
               ) : (
                 <Input id={f.name} name={f.name} type={f.type ?? "text"} required={f.required}

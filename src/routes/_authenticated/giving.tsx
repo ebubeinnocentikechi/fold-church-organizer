@@ -30,7 +30,7 @@ function Giving() {
           { name: "amount", label: "Amount", type: "number", required: true },
           { name: "category", label: "Category", options: givingCategories },
           { name: "method", label: "Method", options: ["cash", "bank transfer", "card", "mobile money", "cheque"] },
-          { name: "member_id", label: "Member (optional)", options: ["", ...members.map((m) => m.id)] },
+          { name: "member_id", label: "Member (optional)", options: [{ value: "", label: "—" }, ...members.map((m) => ({ value: m.id, label: m.full_name }))] },
           { name: "donor_name", label: "Or donor name" },
           { name: "given_on", label: "Date", type: "date", defaultValue: today() },
           { name: "note", label: "Note" },
