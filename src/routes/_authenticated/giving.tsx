@@ -25,7 +25,7 @@ function Giving() {
     <>
       <PageHeader title="Giving">
         <RecordDialog title="Record gift" onSubmit={async (v) => {
-          await add.mutateAsync({ ...v, amount: Number(v.amount), member_id: v.member_id || null } as never);
+          await add.mutateAsync({ ...v, amount: Number(v["amount"]), member_id: v["member_id"] || null } as never);
         }} fields={[
           { name: "amount", label: "Amount", type: "number", required: true },
           { name: "category", label: "Category", options: givingCategories },

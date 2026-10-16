@@ -44,7 +44,7 @@ export function useUpdate<T extends TableName>(table: T) {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async ({ id, patch }: { id: string; patch: Partial<Insert<T>> }) => {
-      const { error } = await supabase.from(table).update(patch as never).eq("id", id);
+      const { error } = await supabase.from(table).update(patch as never).eq("id" as never, id as never);
       if (error) throw error;
     },
     onSuccess: () => qc.invalidateQueries({ queryKey: [table] }),
@@ -56,7 +56,7 @@ export function useRemove(table: TableName) {
   const qc = useQueryClient();
   return useMutation({
     mutationFn: async (id: string) => {
-      const { error } = await supabase.from(table).delete().eq("id", id);
+      const { error } = await supabase.from(table).delete().eq("id" as never, id as never);
       if (error) throw error;
     },
     onSuccess: () => { qc.invalidateQueries({ queryKey: [table] }); toast.success("Deleted"); },

@@ -36,7 +36,7 @@ function Finances() {
   return (
     <>
       <PageHeader title="Finances">
-        <RecordDialog title="Add expense" onSubmit={(v) => add.mutateAsync({ ...v, amount: Number(v.amount) } as never)} fields={[
+        <RecordDialog title="Add expense" onSubmit={(v) => add.mutateAsync({ ...v, amount: Number(v["amount"]) } as never)} fields={[
           { name: "description", label: "Description", required: true },
           { name: "amount", label: "Amount", type: "number", required: true },
           { name: "category", label: "Category", options: ["general", "salaries", "utilities", "rent", "outreach", "maintenance", "equipment", "welfare"] },
